@@ -1,1 +1,1 @@
-# COMP496-Senior-Project-II
+# COMP496-Senior-Project-II-Team-2
