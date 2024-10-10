@@ -1,24 +1,33 @@
-.IntrusionDetection{
-    display: inline-block;
-    color: red;
-}
-
-table, th, td {
-    border: 1px solid;
-}
-
-.topLayer{
-    display: flex;
-}
-
-.bottomLayer{
-    display: flex;
+#devices{
+    height: 50px;
+    width: 200px;
+    font-size: 35px;
 }
 
 #addDevice{
+    width: 100px;
+    height: 100px;
     border: 1px solid;
     border-radius: 8px;
     border-color: darkgreen;
+    margin-left: 30px;
+}
+
+#speedCheck{
+    border: 1px solid;
+    border-radius: 8px;
+    border-color: darkgreen;
+    width: 100px;
+    margin-left: 30px;
+}
+
+#intruderAlert{
+    border: 1px solid;
+    border-radius: 8px;
+    border-color: yellow;
+    width: 100px;
+    margin: auto;
+    margin-left: 200px;
 }
 
 #userProfile{
@@ -27,11 +36,68 @@ table, th, td {
     float: right;
 }
 
-#devices{
-    height: 50px;
+.topLayer{
+    display: flex;
+}
+
+table{
+    width: 75%;
+    border-color: darkgreen;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+th{
+    background-color: darkgreen;
+    color: #f2f2f2;
 }
 
 #greenFlag{
     width: 50px;
     height: 50px;
+}
+
+.originColumn{
+    font-size: 30px;
+}
+
+.timeColumn{
+    font-size: 30px;
+}
+
+.numPackets{
+    font-size: 30px;
+}
+
+.intrusionType{
+    font-size: 30px;
+}
+
+.IntrusionDetection{
+    display: inline-block;
+    color: white;
+    background-color: darkgreen;
+    height: 100px;
+    margin-left: 50px;
+    text-align: center;
+}
+
+.bottomLayer{
+    display: flex;
+}
+
+.NetworkInfo{
+    border: 1px solid;
+    border-color: darkgreen;
+    margin-top: 100px;
+}
+
+.InternetSpeed{
+    border: 1px solid;
+    border-color: darkgreen;
+}
+
+.Isolation{
+    background-color: red;
+    color: white;
 }
