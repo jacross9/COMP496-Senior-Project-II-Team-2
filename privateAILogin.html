@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>paiLogin</title>
+    <link rel="stylesheet" href="privateAILogin.css">
+</head>
+<body>
+<div id="visible">
+    <img src="images/PrivateAI%20Logo.png" alt="Private AI Logo"><br>
+    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto; position: absolute; right: 705px;">Login</button><br>
+    <button onclick="document.getElementById('id02').style.display='block'" style="width:auto; position: absolute; right: 700px; margin-top: 40px;">Sign Up</button>
+</div>
+<div id="id01" class="modal">
+
+    <form class="modal-content animate" action="/action_page.php" method="post">
+
+        <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button onclick="window.location.href = 'http://localhost:63342/COMP496-Senior-Project-II-Team-2/PrivateAI.html?_ijt=u08thtclnq8980c32ci3ifq5fn&_ij_reload=RELOAD_ON_SAVE';" type="submit" formaction="http://localhost:63342/COMP496-Senior-Project-II-Team-2/PrivateAI.html?_ijt=u08thtclnq8980c32ci3ifq5fn&_ij_reload=RELOAD_ON_SAVE">Login</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+</div>
+
+<div id="id02" class="modal">
+
+    <form class="modal-content animate" action="/action_page.php" method="post">
+
+        <div class="container">
+            <label for="eml"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="eml" required>
+
+            <label for="suname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="suname" required>
+
+            <label for="spsw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="spsw" required>
+
+            <button onclick="window.location.href = 'http://localhost:63342/COMP496-Senior-Project-II-Team-2/PrivateAI.html?_ijt=u08thtclnq8980c32ci3ifq5fn&_ij_reload=RELOAD_ON_SAVE';" type="submit" formaction="http://localhost:63342/COMP496-Senior-Project-II-Team-2/PrivateAI.html?_ijt=u08thtclnq8980c32ci3ifq5fn&_ij_reload=RELOAD_ON_SAVE">Sign Up</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Remember me
+            </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+    var modalTwo = document.getElementById('id02');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        } else if(event.target == modalTwo){
+            modal.style.display = "none";
+        }
+    }
+</script>
+</body>
+</html>
