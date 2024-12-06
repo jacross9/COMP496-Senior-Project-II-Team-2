@@ -10,10 +10,10 @@
             <option value="iPad">iPad</option>
             <option value="Android">Android</option>
         </select>
-        <input type="image" id="addDevice" src="/images/Add%20new%20device.png">
+        <input type="image" id="addDevice" onclick="document.getElementById('deviceAdd').style.display='block'" src="/images/Add%20new%20device.png">
         <input type="image" id="speedCheck" src="/images/Speedcheckclock.png">
         <input type="image" id="intruderAlert" src="/images/Suspicion%20alarm.png">
-        <input type="image" id="userProfile" src="images/ProfilePicture-removebg-preview.png">
+        <input type="image" id="userProfile" onclick="document.getElementById('accountDetails').style.display='block'" src="images/ProfilePicture-removebg-preview.png">
         <div class="topLayer">
             <table>
                 <tr>
@@ -85,5 +85,51 @@
             </div>
             <button class="Isolation">ISOLATE</button>
         </div>
+        <div id="deviceAdd" class="modal">
+            <form class="modal-content animate">
+                <div class="container">
+                    <label for="mac"><b>MAC Address</b></label>
+                    <input type="text" placeholder="Enter MAC Address" name="mac" required>
+
+                    <label for="deviceName"><b>Device Name</b></label>
+                    <input type="text" placeholder="Enter Device Name" name="deviceName" required>
+
+                    <input type="submit" class="popUpButton">
+                </div>
+            </form>
+        </div>
+        <div id="accountDetails" class="modal">
+            <div class="modal-content animate">
+                <div class="container">
+                    <label><b>Email</b></label>
+                    <p id="email">something</p>
+
+                    <label><b>Username</b></label>
+                    <p id="username">something</p>
+                </div>
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('accountDetails').style.display='none'" class="closebtn">Close</button>
+                </div>
+            </div>
+        </div>
+        <script>
+            var modal = document.getElementById('deviceAdd');
+            var modalTwo = document.getElementById('accountDetails');
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                } else if(event.target == modalTwo){
+                    modal.style.display = "none";
+                }
+            }
+            let userInfo = window.location.search;
+            let variables = userInfo.split('&');
+            let emailParts = variables[0].split('=');
+            let usernameParts = variables[1].split('=');
+            document.getElementById("email").innerHTML = emailParts[1].replace('%40', '@');
+            document.getElementById("username").innerHTML = usernameParts[1];
+        </script>
 </body>
 </html>
