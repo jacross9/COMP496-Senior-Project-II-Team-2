@@ -4,9 +4,11 @@
 // uses REST API
 
 // install this: npm install express body-parser pcap
+// install: npm install express body-parser pcap mysql2
 // run this: node app.js
 // use this to check activity: GET /status
 // use this to get suspicious activity log: GET /logs
+
 
 
 const express = require('express');
