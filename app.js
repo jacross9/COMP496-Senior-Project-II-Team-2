@@ -82,6 +82,8 @@ app.get('/logs', (req, res) => {
   }
 });
 
+// to import analyzePacket.js
+const { analyzePacket } = require('./packetAnalysis');
 // to use analyzePacket.js
 const monitorTraffic = () => {
   try {
@@ -102,7 +104,9 @@ const monitorTraffic = () => {
     console.error('Error monitoring traffic:', error);
   }
 };
-// intializ
+
+
+// intialize app
 app.listen(port, () => {
   console.log(`App running at http://localhost:${port}`);
   monitorTraffic();
