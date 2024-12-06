@@ -1,4 +1,5 @@
 // trains the data collected from IoT device
+// run this: node train_data_analyzer.js
 
 const fs = require('fs');
 const path = require('path');
