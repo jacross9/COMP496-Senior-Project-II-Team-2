@@ -82,6 +82,26 @@ app.get('/logs', (req, res) => {
   }
 });
 
+// to use analyzePacket.js
+const monitorTraffic = () => {
+  try {
+    console.log('Starting traffic monitoring...');
+    const session = pcap.createSession('eth0'); // Adjust the interface as needed
+
+    session.on('packet', (rawPacket) => {
+      const packet = pcap.decode.packet(rawPacket);
+      const analysisResult = analyzePacket(packet);
+
+      console.log(`Packet analyzed: ${JSON.stringify(analysisResult)}`);
+
+      if (analysisResult.isSuspicious) {
+        logSuspiciousActivity(analysisResult);
+      }
+    });
+  } catch (error) {
+    console.error('Error monitoring traffic:', error);
+  }
+};
 // intializ
 app.listen(port, () => {
   console.log(`App running at http://localhost:${port}`);
