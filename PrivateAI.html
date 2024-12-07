@@ -131,5 +131,11 @@
             document.getElementById("email").innerHTML = emailParts[1].replace('%40', '@');
             document.getElementById("username").innerHTML = usernameParts[1];
         </script>
+        <script type="text/javascript" src="suspiciousActivity.js">
+            if(analyzeSuspiciousPacket() === true){
+                document.body.style.background = linear-gradient(white, red);
+                alert("Your network is under attack");
+            }
+        </script>
 </body>
 </html>
