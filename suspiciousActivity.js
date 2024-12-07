@@ -1,3 +1,4 @@
+// import this: const { detectSuspiciousActivity, analyzeSuspiciousPacket, loadSuspiciousPatterns } = require('./suspiciousActivity');
 
 const fs = require('fs');
 
@@ -44,3 +45,13 @@ const loadSuspiciousPatterns = (modelFilePath) => {
 };
 
 module.exports = { detectSuspiciousActivity, analyzeSuspiciousPacket, loadSuspiciousPatterns };
+
+const packet = {
+  payload: {
+    saddr: '192.168.1.1',
+    daddr: '8.8.8.8',
+    payload: { payload: { data: 'example-malware-signature detected' } },
+  },
+};
+const analysis = analyzeSuspiciousPacket(packet, suspiciousPatterns);
+console.log(analysis);
