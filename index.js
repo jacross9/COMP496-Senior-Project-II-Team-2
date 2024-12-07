@@ -4,12 +4,12 @@
 
 const fs = require('fs');
 const path = require('path');
-const { analyzePacket } = require('./packetAnalysis');
+const { analyzePacket } = require('./packet_monitor');
 const { trainModel } = require('./train_data_analyzer');
 
 // File paths
 const trainingDataPath = path.join(__dirname, 'training_data.json');
-const modelPath = path.join(__dirname, 'trained_model.json');
+const modelPath = path.join(__dirname, 'training_data.json');
 
 /**
  * Load training data from the file system
