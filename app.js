@@ -8,7 +8,8 @@
 // run this: node app.js
 // use this to check activity: GET /status
 // use this to get suspicious activity log: GET /logs
-
+// bash command: curl http://localhost:3000/status
+// server url: http://localhost:3000
 
 
 const express = require('express');
@@ -107,7 +108,30 @@ const monitorTraffic = () => {
   }
 };
 
+// exposing endpoints (specifically POST)
+app.post('/data', (req, res) => {
+  const { sourceIP, destIP, message } = req.body;
+  console.log('Received data from Python:', { sourceIP, destIP, message });
+  res.json({ success: true });
+});
 
+// sends data to POST endpoint
+const axios = require('axios');
+
+const sendDataToPython = async () => {
+  try {
+    const response = await axios.post('http://localhost:5000/process', {
+      sourceIP: '192.168.1.1',
+      destIP: '192.168.1.2',
+      message: 'Example payload data'
+    });
+    console.log('Response from Python:', response.data);
+  } catch (error) {
+    console.error('Error sending data to Python:', error);
+  }
+};
+
+sendDataToPython();
 // intialize app
 app.listen(port, () => {
   console.log(`App running at http://localhost:${port}`);
