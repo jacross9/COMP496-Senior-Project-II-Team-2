@@ -120,7 +120,7 @@ const axios = require('axios');
 
 const sendDataToPython = async () => {
   try {
-    const response = await axios.post('http://localhost:5000/process', {
+    const response = await axios.post('http://localhost:8000/process', {
       sourceIP: '192.168.1.1',
       destIP: '192.168.1.2',
       message: 'Example payload data'
