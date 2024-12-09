@@ -6,6 +6,8 @@ import train_model
 import packet_monitor
 import os
 import pickle
+import requests
+from flask import Flask, request, jsonify
 from sklearn.metrics import accuracy_score, classification_report
 
 def main():
@@ -50,6 +52,32 @@ def main():
     # Makes Call To packet_monitoring.py
     packet_monitor.start_packet_monitoring()
 
+def send_data_to_node(source_ip, dest_ip, message):
+    url = 'http://localhost:3000/data'  # Replace with your Node.js server URL
+    payload = {
+        'sourceIP': source_ip,
+        'destIP': dest_ip,
+        'message': message
+    }
+    try:
+        response = requests.post(url, json=payload)
+        if response.status_code == 200:
+            print('Data sent successfully:', response.json())
+        else:
+            print('Failed to send data:', response.status_code, response.text)
+    except Exception as e:
+        print('Error connecting to Node.js server:', e)
+
+app = Flask(__name__)
+
+@app.route('/process', methods=['POST'])
+def process_data():
+    data = request.get_json()
+    print('Data received from Node.js:', data)
+    return jsonify({'success': True, 'message': 'Data processed'})
+
+if __name__ == '__main__':
+    app.run(port=5000)
 
 if __name__ == '__main__':
     main()
